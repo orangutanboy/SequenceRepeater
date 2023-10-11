@@ -6,7 +6,7 @@
         {
             var sequenceArray = sequence.ToArray();
             var longestRepeat = GetRepeats(sequenceArray);
-            return (longestRepeat, GetRepeats(sequenceArray, longestRepeat));
+            return (longestRepeat, GetCountOfRepeats(sequenceArray, longestRepeat));
         }
 
         private static string[] GetRepeats(string[] sequence)
@@ -72,7 +72,7 @@
             return true;
         }
 
-        private static int GetRepeats(string[] sequence, string[] repeatingSequence)
+        private static int GetCountOfRepeats(string[] sequence, string[] repeatingSequence)
         {
             if (sequence.Length == 0 || repeatingSequence.Length == 0)
             {

@@ -5,7 +5,7 @@
         public (IEnumerable<string> LongestRepeat, int Occurrences) GetLongestRepeated(IEnumerable<string> sequence)
         {
             var longestRepeat = GetRepeats(sequence);
-            return (longestRepeat, GetRepeats(sequence, longestRepeat));
+            return (longestRepeat, GetCountOfRepeats(sequence, longestRepeat));
         }
 
         private static IEnumerable<string> GetRepeats(IEnumerable<string> sequence)
@@ -61,7 +61,7 @@
             return nextToCheck.Distinct().Count() == nextToCheck.Count();
         }
 
-        private static int GetRepeats(IEnumerable<string> sequence, IEnumerable<string> repeatingSequence)
+        private static int GetCountOfRepeats(IEnumerable<string> sequence, IEnumerable<string> repeatingSequence)
         {
             if (!sequence.Any() || !repeatingSequence.Any())
             {

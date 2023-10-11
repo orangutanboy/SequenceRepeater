@@ -44,19 +44,15 @@ public class Benchmark
         RunSimulation(repeatSearcher);
     }
 
-    private void RunSimulation(IRepeatSearcher repeatSearcher)
+    private static void RunSimulation(IRepeatSearcher repeatSearcher)
     {
         for (var repeatLength = 25; repeatLength < 400; repeatLength += 25) // total length of repeat
         {
-            var sequence = new List<string>();
-
-            for (var i = 0; i < repeatLength; ++i)
-            {
-                sequence.Add(i.ToString());
-            }
+            var sequence = Enumerable.Range(0, repeatLength).Select(i => i.ToString()).ToList();
 
             sequence.AddRange(sequence);
             sequence.AddRange(sequence);
+
             sequence.Add("Extra");
 
             repeatSearcher.GetLongestRepeated(sequence);
